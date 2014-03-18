@@ -24,7 +24,7 @@
     </head>
     <body>
 
-        <?= \Theme::instance()->view('_templates/top_navbar'); ?>
+        <?= \Theme::instance()->view('frontend/_templates/top_navbar'); ?>
 
         <div class="container">
             <div class="col-md-8">

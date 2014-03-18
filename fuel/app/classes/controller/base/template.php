@@ -36,7 +36,7 @@ class Controller_Base_Template extends \Controller_Hybrid
         $messages = array('Uh Oh!', 'Huh ?');
         $data['notfound_title'] = $messages[array_rand($messages)];
         $this->dataGlobal['pageTitle'] = 'Page introuvable!';
-        $this->theme->set_partial('content', '_partials/404')->set($data);
+        $this->theme->set_partial('content', '404')->set($data);
     }
     
     public function after($response)
