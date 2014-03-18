@@ -3,12 +3,16 @@
 return array(
 	'page-not-found' => 'Page not found!',
 	'error' => 'An error has occured',
+	'category' => 'Category',
+	'on' => 'on',
+	'by' => 'by',
 
 	'frontend' => array(
 		'post' => array(
 			'empty' => 'No post found',
 			'not-found' => 'Post not found',
 		),
+		'read-more' => 'Read more',
 	),
 
 	'backend' => array(
