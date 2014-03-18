@@ -16,3 +16,6 @@
 [submodule "fuel/core"]
 	path = fuel/core
 	url = http://github.com/fuel/core.git
+[submodule "fuel/packages/messages"]
+	path = fuel/packages/messages
+	url = https://github.com/jhuriez/fuel-messages.git
