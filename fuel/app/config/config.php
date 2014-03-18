@@ -13,6 +13,17 @@
 
 return array(
 
+	'application' => array(
+		'seo' => array(
+			'backend' => array(
+				'title' => 'Blog | Admin panel',
+			),
+			'frontend' => array(
+				'title' => 'Blog | MyDomain.com',
+			),
+ 		),
+	),
+
 	/**
 	 * base_url - The base URL of the application.
 	 * MUST contain a trailing slash (/)
