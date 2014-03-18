@@ -1,5 +1,5 @@
 # Multiple Environment config, set this to development, staging or production
-# SetEnv FUEL_ENV production
+SetEnv FUEL_ENV development
 
 <IfModule mod_rewrite.c>
 

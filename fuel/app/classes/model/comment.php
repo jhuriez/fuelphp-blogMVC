@@ -52,7 +52,7 @@ class Model_Comment extends \Orm\Model
         ),
     );
     
-    protected static $_table_name = 'comments';
+    protected static $_table_name = 'blog_comment';
     
     /**
      * Comment BelongsTo Post

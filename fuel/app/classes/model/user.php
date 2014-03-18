@@ -16,6 +16,25 @@ class Model_User extends \Orm\Model
             'validation'  => array('required', 'min_length' => array(8), 'match_field' => array('confirm')),
             'null' => false,
         ),
+        'email' => array(
+            'label' => 'auth_model_user.email',
+            'default' => 0,
+            'null' => false,
+            'validation' => array('required', 'valid_email')
+        ),
+        'group_id' => array(
+            'label' => 'auth_model_user.group_id',
+            'default' => 0,
+            'null' => false,
+            'form' => array('type' => 'select'),
+            'validation' => array('required', 'is_numeric')
+        ),
+        'last_login' => array(
+            'form' => array('type' => false),
+        ),
+        'login_hash' => array(
+            'form' => array('type' => false),
+        ),
         'created_at' => array(
             'form' => array('type' => false),
             'default' => 0,
@@ -39,7 +58,7 @@ class Model_User extends \Orm\Model
         ),
     );
     
-    protected static $_table_name = 'users';
+    protected static $_table_name = 'blog_user';
     
     /**
      * User HasMany Posts

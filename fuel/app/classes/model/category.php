@@ -50,7 +50,7 @@ class Model_Category extends \Orm\Model
         ),
     );
 
-    protected static $_table_name = 'categories';
+    protected static $_table_name = 'blog_category';
     
     /**
      * Category HasMany Posts
