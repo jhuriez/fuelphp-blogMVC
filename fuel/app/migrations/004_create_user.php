@@ -18,6 +18,9 @@ class Create_user
 			'created_at'     => array('constraint' => 11, 'type' => 'int', 'null' => true),
 			'updated_at'     => array('constraint' => 11, 'type' => 'int', 'null' => true),
 		), array('id'));
+
+		// Create admin user
+		\Auth::instance()->create_user('admin','password','admin@blog.com','100');
 	}
 
 	public function down()
