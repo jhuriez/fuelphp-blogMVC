@@ -8,9 +8,6 @@ class Controller_Base_Backend extends \Controller_Base_Template
     {
         parent::before();
        
-        // Load translation
-        \Lang::load('backend');
-
         // Get action, module and controller name
         $this->actionName = \Request::active()->action;
         $this->moduleName = \Request::active()->module;
@@ -18,7 +15,12 @@ class Controller_Base_Backend extends \Controller_Base_Template
         $this->controllerName = strtolower(str_replace('Controller_', '', \Request::active()->controller));
         $this->controllerName = str_replace($this->moduleName.'\\', '', $this->controllerName);
 
-        // @TODO : Check Auth Access
+        // Check Auth Access
+        if ( ! \Auth::check())
+        {
+            \Messages::info(__('user.login.not-logged'));
+            \Response::redirect('/user/login');
+        }
 
         // Set global
         $this->dataGlobal['title'] = \Config::get('application.seo.backend.title');

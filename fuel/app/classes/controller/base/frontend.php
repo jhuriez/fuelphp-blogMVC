@@ -8,9 +8,6 @@ class Controller_Base_Frontend extends \Controller_Base_Template
     {
         parent::before();
        
-        // Load translation
-        \Lang::load('frontend');
-
         // Set global
         $this->dataGlobal['title'] = \Config::get('application.seo.frontend.title');
     }

@@ -24,7 +24,7 @@
     </head>
     <body>
 
-        <?= \Theme::instance()->view('backend/_templates/top_navbar'); ?>
+        <?= \Theme::instance()->view('user/_templates/top_navbar'); ?>
 
         <div class="container">
             <?= \Theme::instance()->view('_includes/message'); ?>

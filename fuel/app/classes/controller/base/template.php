@@ -11,6 +11,9 @@ class Controller_Base_Template extends \Controller_Hybrid
         $this->theme = \Theme::instance();
         $this->theme->set_template($this->template);
 
+        // Load translation
+        \Lang::load('blog');
+
         //  Get current segments
         $segments = \Uri::segments();
         empty($segments) and $segments[0] = 'home';
@@ -35,7 +38,7 @@ class Controller_Base_Template extends \Controller_Hybrid
     {
         $messages = array('Uh Oh!', 'Huh ?');
         $data['notfound_title'] = $messages[array_rand($messages)];
-        $this->dataGlobal['pageTitle'] = 'Page introuvable!';
+        $this->dataGlobal['pageTitle'] = __('page-not-found');
         $this->theme->set_partial('content', '404')->set($data);
     }
     
@@ -59,6 +62,6 @@ class Controller_Base_Template extends \Controller_Hybrid
 
     public function setMedia()
     {
-
+        $this->theme->asset->css('blog.css', array(), 'css_core', false);
     }
 }
