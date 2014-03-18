@@ -1,3 +1,5 @@
+<p><a href="/backend/post">< <?= __('backend.back-to-post'); ?></a></p>
+
 <?= \Form::open(array('class'   => '')); ?>
     <div class="row">
         <div class="col-md-6">

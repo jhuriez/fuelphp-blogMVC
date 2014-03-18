@@ -4,6 +4,12 @@ return array(
 	'page-not-found' => 'Page not found!',
 	'error' => 'An error has occured',
 
+	'frontend' => array(
+		'post' => array(
+			'empty' => 'No post found',
+			'not-found' => 'Post not found',
+		),
+	),
 
 	'backend' => array(
 		'post' => array(
@@ -20,6 +26,7 @@ return array(
 		'add' => 'Add',
 		'delete' => 'Delete',
 		'are-you-sure' => 'Are you sure ?',
+		'back-to-post' => 'Back to post',
 	),
 
 	'post' => array(

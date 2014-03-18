@@ -22,6 +22,7 @@ return array(
 				'title' => 'Blog | MyDomain.com',
 			),
  		),
+ 		'truncate' => 200,
 	),
 
 	/**
