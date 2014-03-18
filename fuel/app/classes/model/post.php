@@ -6,27 +6,29 @@ class Model_Post extends \Orm\Model
     protected static $_properties = array(
         'id',
         'name' => array(
-            'label' => 'Name',
+            'label' => 'post.model.name',
             'null' => false,
             'validation' => array('required', 'min_length' => array(3)),
         ),
         'slug' => array(
-            'label' => 'Slug',
-            'form' => array('type' => false),
+            'label' => 'post.model.slug',
             'null' => false,
         ),
         'content' => array(
-            'label' => 'Content',
+            'label' => 'post.model.content',
             'null' => false,
             'validation' => array('required'),
+            'form' => array('type' => 'textarea'),
         ),
         'category_id' => array(
+            'label' => 'post.model.category_id',
             'form' => array('type' => 'select'),
             'null' => false,
             'validation' => array('required', 'is_numeric'),
         ),
         'user_id' => array(
-            'form' => array('type' => false),
+            'label' => 'post.model.user_id',
+            'form' => array('type' => 'select'),
             'null' => false,
             'validation' => array('is_numeric'),
         ),
@@ -95,5 +97,22 @@ class Model_Post extends \Orm\Model
             'cascade_delete' => true,  // We delete all comments from the post deleted
         ),
     );
+
+
+    public static function set_form_fields($form, $instance = null)
+    {
+
+        // Call parent for create the fieldset and set default value
+        parent::set_form_fields($form, $instance);
+
+        // Set authors
+        foreach(\Model_User::find('all') as $user)
+            $form->field('user_id')->set_options($user->id, $user->username);
+
+        // Set categories
+        foreach(\Model_Category::find('all') as $category)
+            $form->field('category_id')->set_options($category->id, $category->name);
+
+    }    
 
 }

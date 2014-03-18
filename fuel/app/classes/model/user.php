@@ -22,8 +22,8 @@ class Model_User extends \Orm\Model
             'null' => false,
             'validation' => array('required', 'valid_email')
         ),
-        'group_id' => array(
-            'label' => 'auth_model_user.group_id',
+        'group' => array(
+            'label' => 'auth_model_user.group',
             'default' => 0,
             'null' => false,
             'form' => array('type' => 'select'),
