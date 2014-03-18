@@ -11,8 +11,8 @@
 
         <div class="collapse navbar-collapse navbar-ex1-collapse navbar-right">
             <ul class="nav navbar-nav">
-                <li><a href="index.html">< Back to front</a></li>
-                <li><a href="index.html">Logout</a></li>
+                <li><a href="/">< Back to front</a></li>
+                <li><a href="/user/logout">Logout</a></li>
             </ul>
         </div>
 
