@@ -42,7 +42,7 @@ class Controller_Backend_Post extends \Controller_Base_Backend
 		{
 			$form->validation()->run();
 
-			if( ! $form->validation()->error())
+			if ( ! $form->validation()->error())
 			{
 				$post->from_array(array(
 					'name' => $form->validated('name'),
@@ -54,6 +54,13 @@ class Controller_Backend_Post extends \Controller_Base_Backend
 
 				if ($post->save())
 				{
+					// Category Post count update
+					foreach(\Model_Category::find('all') as $category)
+					{
+						$category->post_count = count($category->posts);
+						$category->save();
+					}
+
 					if ($isUpdate)
 						\Messages::success(__('backend.post.edited'));
 					else
