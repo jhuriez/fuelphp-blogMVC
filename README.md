@@ -24,9 +24,12 @@ For more detailed information, see the [development wiki](https://github.com/fue
 
 ## Install
 
-1. See [FuelPHP Installation](http://fuelphp.com/docs/installation/instructions.html) for installation of the framework
+1. Clone the repo with all submodules : `git clone --recursive http://github.com/jhuriez/fuelphp-blogMVC.git`
 2. Edit config db in fuel/app/config/development and fuel/app/config/production
-3. Load migration : Open console and run `oil refine migrate --all`
+3. Open console
+4. Run `php composer.phar self-update`
+5. Run `php composer.phar update`
+3. Run `oil refine migrate --all` for load migration files
 4. Enjoy !
 
 ## Features
