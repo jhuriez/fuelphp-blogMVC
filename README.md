@@ -16,23 +16,28 @@ FuelPHP is a fast, lightweight PHP 5.3 framework. In an age where frameworks are
 
 For more detailed information, see the [development wiki](https://github.com/fuelphp/fuelphp/wiki).
 
-##Development Team
+## Note
 
-* Harro Verton - Project Manager, Developer ([http://wanwizard.eu/](http://wanwizard.eu/))
-* Frank de Jonge - Developer ([http://frenky.net/](http://frenky.net/))
+* FuelPHP-BlogMVC is a very simple blog application with FuelPHP
+* No SQL dump file was needed, defaults data are added by migrations files
+* Admin login : admin/admin
 
-### Want to join?
+## Install
 
-The FuelPHP development team is always looking for new team members, who are willing
-to help lift the framework to the next level, and have the commitment to not only
-produce awesome code, but also great documentation, and support to our users.
+1. See [FuelPHP Installation](http://fuelphp.com/docs/installation/instructions.html) for installation of the framework
+2. Edit config db in fuel/app/config/development and fuel/app/config/production
+3. Load migration : Open console and run `oil refine migrate --all`
+4. Enjoy !
 
-You can not apply for membership. Start by sending in pull-requests, work on outstanding
-feature requests or bugs, and become active in the #fuelphp IRC channel. If your skills
-are up to scratch, we will notice you, and will ask you to become a team member.
+## Features
 
-### Alumni
-
-* Jelmer Schreuder - Developer ([http://jelmerschreuder.nl/](http://jelmerschreuder.nl/))
-* Phil Sturgeon - Developer ([http://philsturgeon.co.uk](http://philsturgeon.co.uk))
-* Dan Horrigan - Founder, Developer ([http://dhorrigan.com](http://dhorrigan.com))
+* Usage of ORM Model and relationship
+* Usage of SimpleAuth for Authentification
+* Usage of Cache class and HMVC Request for the sidebar
+* Usage of Pagination class
+* Usage of Fieldset class for form (post and comment)
+* Usage of Router class for all links
+* Usage of Theme class
+* Usage of Markdown class
+* Usage of translation files
+* Usage of migration files
