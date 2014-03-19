@@ -18,6 +18,7 @@ For more detailed information, see the [development wiki](https://github.com/fue
 
 ## Note
 
+* The idea comes from the project [BlogMVC](https://github.com/Grafikart/BlogMVC)
 * FuelPHP-BlogMVC is a very simple blog application with FuelPHP
 * No SQL dump file was needed, defaults data are added by migrations files
 * Admin login : admin/admin
