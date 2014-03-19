@@ -4,11 +4,12 @@ return array(
 	'page-not-found' => 'Page not found!',
 	'error' => 'An error has occured',
 	'category' => 'Category',
+	'categories' => 'Categories',
 	'commentaires' => 'Commentaires',
 	'on' => 'on',
 	'by' => 'by',
 	'submit' => 'Submit',
-
+	'last-posts' => 'Last posts',
 
 	'frontend' => array(
 		'post' => array(

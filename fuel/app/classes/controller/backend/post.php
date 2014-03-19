@@ -54,6 +54,10 @@ class Controller_Backend_Post extends \Controller_Base_Backend
 
 				if ($post->save())
 				{
+					// Delete caches
+					\Cache::delete('categories');
+					\Cache::delete('last_posts');
+
 					// Category Post count update
 					foreach(\Model_Category::find('all') as $category)
 					{
@@ -95,6 +99,10 @@ class Controller_Backend_Post extends \Controller_Base_Backend
         
         if ($post->delete())
         {
+			// Delete caches
+			\Cache::delete('categories');
+			\Cache::delete('last_posts');
+        	
             \Messages::success(__('backend.post.deleted'));
         }
         else
