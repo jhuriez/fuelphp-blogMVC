@@ -27,10 +27,11 @@ For more detailed information, see the [development wiki](https://github.com/fue
 1. Clone the repo with all submodules : `git clone --recursive http://github.com/jhuriez/fuelphp-blogMVC.git`
 2. Edit config db in fuel/app/config/development and fuel/app/config/production
 3. Open console
-4. Run `php composer.phar self-update`
-5. Run `php composer.phar update`
-3. Run `oil refine migrate --all` for load migration files
-4. Enjoy !
+5. Run `curl get.fuelphp.com/oil | sh` for use "oil" instead "php oil"
+6. Run `php composer.phar self-update`
+7. Run `php composer.phar update`
+8. Run `oil refine migrate --all` for load migration files
+9. Enjoy !
 
 ## Features
 
