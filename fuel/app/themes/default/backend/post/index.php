@@ -1,4 +1,4 @@
-<p><a href="/backend/post/add" class="btn btn-primary"><?= __('backend.post.add'); ?></a></p>
+<p><a href="<?= \Router::get('admin_post_add'); ?>" class="btn btn-primary"><?= __('backend.post.add'); ?></a></p>
 
 <?php if(empty($posts)): ?>
 	<?= __('backend.post.empty'); ?>
@@ -21,8 +21,8 @@
 	                <td><?= date('d/m/Y H:i:s', $post->created_at); ?></td>
 	                <td><?= $post->category->name; ?></td>
 	                <td>
-	                    <a href="/backend/post/add/<?= $post->id; ?>" class="btn btn-primary"><?= __('backend.edit'); ?></a>
-	                    <a href="/backend/post/delete/<?= $post->id; ?>" class="btn btn-danger" onclick="return confirm('<?= __('backend.are-you-sure'); ?>')"><?= __('backend.delete'); ?></a>
+	                    <a href="<?= \Router::get('admin_post_edit', array('id' => $post->id)); ?>" class="btn btn-primary"><?= __('backend.edit'); ?></a>
+	                    <a href="<?= \Router::get('admin_post_delete', array('id' => $post->id)); ?>" class="btn btn-danger" onclick="return confirm('<?= __('backend.are-you-sure'); ?>')"><?= __('backend.delete'); ?></a>
 	                </td>
 	            </tr>
         	<?php endforeach; ?>

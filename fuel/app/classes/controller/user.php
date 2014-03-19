@@ -27,7 +27,7 @@ class Controller_User extends \Controller_Base_Template
             // yes, so go back to the page the user came from, or the
             // application dashboard if no previous page can be detected
             \Messages::info(__('user.login.already-logged-in'));
-            \Response::redirect_back('/backend');
+            \Response::redirect_back(\Router::get('admin'));
         }
 
         // was the login form posted?
@@ -38,7 +38,7 @@ class Controller_User extends \Controller_Base_Template
             {
                 // logged in, go back to the page the user came from, or the
                 // application dashboard if no previous page can be detected
-                \Response::redirect_back('/backend');
+                \Response::redirect_back(\Router::get('admin'));
             }
             else
             {

@@ -1,4 +1,4 @@
-<p><a href="/backend/post">< <?= __('backend.back-to-post'); ?></a></p>
+<p><a href="<?= \Router::get('admin_post'); ?>">< <?= __('backend.back-to-post'); ?></a></p>
 
 <?= \Form::open(array('class'   => '')); ?>
     <div class="row">

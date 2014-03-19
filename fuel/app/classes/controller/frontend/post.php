@@ -16,7 +16,7 @@ class Controller_Frontend_Post extends \Controller_Base_Frontend
     	if ( ! $post)
     	{
     		\Messages::error(__('frontend.post.not-found'));
-    		\Response::redirect_back('/');
+    		\Response::redirect_back(\Router::get('homepage'));
     	}
     	else
     	{
@@ -48,7 +48,7 @@ class Controller_Frontend_Post extends \Controller_Base_Frontend
                     if ($comment->save())
                     {
                         \Messages::success(__('frontend.comment.added'));
-                        \Response::redirect_back('/'.$post->slug);
+                        \Response::redirect_back(\Router::get('show_post', array('segment' => $post->slug)));
                     }
                     else
                     {

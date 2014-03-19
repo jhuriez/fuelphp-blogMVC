@@ -66,7 +66,7 @@ class Controller_Backend_Post extends \Controller_Base_Backend
 					else
 						\Messages::success(__('backend.post.added'));
 
-					\Response::redirect_back('/backend/post');
+					\Response::redirect_back(\Router::get('admin_post'));
 				}
 				else
 				{
@@ -102,6 +102,6 @@ class Controller_Backend_Post extends \Controller_Base_Backend
             \Messages::error(__('error'));
         }
 
-        \Response::redirect_back('/backend/post');
+        \Response::redirect_back(\Router::get('admin_post'));
     }
 }

@@ -1,9 +1,11 @@
 <div class="page-header">
     <h1><?= $post->name; ?></h1>
-    <p><small>
-		<?= __('category'); ?> : <a href="/category/<?= $post->category->slug; ?>"><?= $post->category->name; ?></a>,
-		<?= __('by'); ?> <a href="/author/<?= $post->user->username; ?>"><?= $post->user->username; ?></a> <?= __('on'); ?> <em><?= date('d/m/Y', $post->created_at); ?></em>
-	 </small></p>
+    <p>
+    	<small>
+			<?= __('category'); ?> : <a href="<?= \Router::get('show_post_category', array('category' => $post->category->slug)); ?>"><?= $post->category->name; ?></a>,
+			<?= __('by'); ?> <a href="<?= \Router::get('show_post_author', array('author' => $post->user->username)); ?>"><?= $post->user->username; ?></a> <?= __('on'); ?> <em><?= date('d/m/Y', $post->created_at); ?></em>
+		 </small>
+	 </p>
 </div>
 
 <article>

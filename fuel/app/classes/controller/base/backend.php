@@ -19,7 +19,7 @@ class Controller_Base_Backend extends \Controller_Base_Template
         if ( ! \Auth::check())
         {
             \Messages::info(__('user.login.not-logged'));
-            \Response::redirect('/user/login');
+            \Response::redirect(\Router::get('login'));
         }
 
         // Set global
