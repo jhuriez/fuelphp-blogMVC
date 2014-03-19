@@ -7,29 +7,20 @@ class Controller_Frontend_Post extends \Controller_Base_Frontend
     {
         if (\Request::is_hmvc())
         {
-            // Get categories in cache
+            // Get sidebar in cache
             try
             {
-                $this->data['categories'] = \Cache::get('categories');
+                $sidebar = \Cache::get('sidebar');
             }
             catch (\CacheNotFoundException $e)
             {
                 $this->data['categories'] = \Model_Category::find('all');
-                \Cache::set('categories', $this->data['categories']);
-            }
-
-            // Get lasts posts
-            try
-            {
-                $this->data['lastPosts'] = \Cache::get('last_posts');
-            }
-            catch (\CacheNotFoundException $e)
-            {
                 $this->data['lastPosts'] = \Model_Post::query()->order_by('created_at', 'DESC')->limit(5)->get();
-                \Cache::set('lastPosts', $this->data['lastPosts']);
+                $sidebar = $this->theme->view('frontend/post/sidebar', $this->data);
+                \Cache::set('sidebar', $sidebar);
             }
 
-            return $this->theme->view('frontend/post/sidebar', $this->data);
+            return $sidebar;
         }
     }
 
