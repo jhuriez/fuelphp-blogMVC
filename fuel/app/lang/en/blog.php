@@ -10,6 +10,8 @@ return array(
 	'by' => 'by',
 	'submit' => 'Submit',
 	'last-posts' => 'Last posts',
+	'welcome' => 'Welcome on my blog',
+
 
 	'frontend' => array(
 		'post' => array(
@@ -18,6 +20,9 @@ return array(
 		),
 		'comment' => array(
 			'added' => 'Comment added',
+		),
+		'category' => array(
+			'not-found' => 'Category not found',
 		),
 		'read-more' => 'Read more',
 		'comment-this-post' => 'Comment this post',

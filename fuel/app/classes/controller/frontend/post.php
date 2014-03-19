@@ -39,6 +39,36 @@ class Controller_Frontend_Post extends \Controller_Base_Frontend
 		$this->theme->set_partial('content', 'frontend/post/index')->set($this->data, null, false); 
     }
 
+    public function action_show_by_category($category = false)
+    {
+        $category = $this->data['category'] = \Model_Category::query()->where('slug', $category)->get_one();
+
+        if ( ! $category)
+        {
+            \Messages::error(__('frontend.category.not-found'));
+            \Response::redirect_back(\Router::get('homepage'));
+        }
+        else
+        {
+            $this->theme->set_partial('content', 'frontend/post/category')->set($this->data, null, false);
+        }
+    }
+
+    public function action_show_by_author($author = false)
+    {
+        $author = $this->data['author'] = \Model_User::query()->where('username', $author)->get_one();
+
+        if ( ! $author)
+        {
+            \Messages::error(__('frontend.author.not-found'));
+            \Response::redirect_back(\Router::get('homepage'));
+        }
+        else
+        {
+            $this->theme->set_partial('content', 'frontend/post/author')->set($this->data, null, false);
+        }
+    }
+
     public function action_show($slug = false)
     {
     	$post = $this->data['post'] = \Model_Post::query()->where('slug', $slug)->get_one();
