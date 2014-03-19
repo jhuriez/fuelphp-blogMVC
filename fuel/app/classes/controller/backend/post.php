@@ -15,6 +15,8 @@ class Controller_Backend_Post extends \Controller_Base_Backend
             'uri_segment'    => 'page',
         );
         $this->data['pagination'] = $pagination = \Pagination::forge('post_pagination', $config);
+
+        // Get posts
         $this->data['posts'] = \Model_Post::query()
                                         ->offset($pagination->offset)
                                         ->limit($pagination->per_page)
@@ -59,6 +61,7 @@ class Controller_Backend_Post extends \Controller_Base_Backend
 
 			if ( ! $form->validation()->error())
 			{
+				// Populate the post
 				$post->from_array(array(
 					'name' => $form->validated('name'),
 					'slug' => ($form->validated('slug') != '') ? \Inflector::friendly_title($form->validated('slug')) : \Inflector::friendly_title($form->validated('name')),
