@@ -14,4 +14,6 @@
 			<p class="text-right"><a href="<?= \Router::get('show_post', array('segment' => $post->slug)); ?>" class="btn btn-primary"><?= __('frontend.read-more'); ?>...</a></p>
 		</article>
 	<?php endforeach; ?>
+	<?= $pagination; ?>
 <?php endif; ?>
+

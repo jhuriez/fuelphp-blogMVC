@@ -23,6 +23,9 @@ return array(
 			),
  		),
  		'truncate' => 200,
+ 		'pagination' => array(
+ 			'per_page' => 5,
+		),
 	),
 
 	/**

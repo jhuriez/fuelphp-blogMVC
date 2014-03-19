@@ -3,4 +3,4 @@
     <p class="lead"><?= __('welcome'); ?></p>
 </div>
 
-<?= \Theme::instance()->view('frontend/post/_includes/list')->set('posts', $posts); ?>
+<?= \Theme::instance()->view('frontend/post/_includes/list')->set(array('posts' => $posts, 'pagination' => $pagination), null, false); ?>

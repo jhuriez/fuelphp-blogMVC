@@ -35,7 +35,20 @@ class Controller_Frontend_Post extends \Controller_Base_Frontend
 
     public function action_index()
     {
-		$posts = $this->data['posts'] = \Model_Post::query()->order_by('created_at', 'DESC')->get();
+        // Pagination
+        $config = array(
+            'pagination_url' => \Uri::current(),
+            'total_items'    => \Model_Post::count(),
+            'per_page'       => \Config::get('application.pagination.per_page'),
+            'uri_segment'    => 'page',
+        );
+        $this->data['pagination'] = $pagination = \Pagination::forge('post_pagination', $config);
+        $this->data['posts'] = \Model_Post::query()
+                                        ->offset($pagination->offset)
+                                        ->limit($pagination->per_page)
+                                        ->order_by('created_at', 'DESC')
+                                        ->get();
+
 		$this->theme->set_partial('content', 'frontend/post/index')->set($this->data, null, false); 
     }
 
@@ -50,6 +63,21 @@ class Controller_Frontend_Post extends \Controller_Base_Frontend
         }
         else
         {
+            // Pagination
+            $config = array(
+                'pagination_url' => \Uri::current(),
+                'total_items'    => $category->post_count,
+                'per_page'       => \Config::get('application.pagination.per_page'),
+                'uri_segment'    => 'page',
+            );
+            $this->data['pagination'] = $pagination = \Pagination::forge('post_pagination', $config);
+            $this->data['posts'] = \Model_Post::query()
+                                            ->where('category_id', $category->id)
+                                            ->order_by('created_at', 'DESC')
+                                            ->offset($pagination->offset)
+                                            ->limit($pagination->per_page)
+                                            ->get();
+
             $this->theme->set_partial('content', 'frontend/post/category')->set($this->data, null, false);
         }
     }
@@ -65,6 +93,21 @@ class Controller_Frontend_Post extends \Controller_Base_Frontend
         }
         else
         {
+            // Pagination
+            $config = array(
+                'pagination_url' => \Uri::current(),
+                'total_items'    => count($author->posts),
+                'per_page'       => \Config::get('application.pagination.per_page'),
+                'uri_segment'    => 'page',
+            );
+            $this->data['pagination'] = $pagination = \Pagination::forge('post_pagination', $config);
+            $this->data['posts'] = \Model_Post::query()
+                                            ->where('user_id', $author->id)
+                                            ->order_by('created_at', 'DESC')
+                                            ->offset($pagination->offset)
+                                            ->limit($pagination->per_page)
+                                            ->get();
+
             $this->theme->set_partial('content', 'frontend/post/author')->set($this->data, null, false);
         }
     }
