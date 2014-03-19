@@ -15,8 +15,8 @@ class Create_category
 			'updated_at' => array('constraint' => 11, 'type' => 'int', 'null' => true),
 		), array('id'));
 
-		\Model_Category::forge(array('name' => 'Category #1', 'slug' => 'category-1', 'post_count' => 0))->save();
-		\Model_Category::forge(array('name' => 'Category #2', 'slug' => 'category-2', 'post_count' => 0))->save();
+		\Model_Category::forge(array('name' => 'Category #1', 'slug' => 'category-1', 'post_count' => 3))->save();
+		\Model_Category::forge(array('name' => 'Category #2', 'slug' => 'category-2', 'post_count' => 1))->save();
 		\Model_Category::forge(array('name' => 'Category #3', 'slug' => 'category-3', 'post_count' => 0))->save();
 		\Model_Category::forge(array('name' => 'Category #4', 'slug' => 'category-4', 'post_count' => 0))->save();
 	}
