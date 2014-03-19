@@ -28,4 +28,6 @@
         	<?php endforeach; ?>
         </tbody>
     </table>
+
+    <?= $pagination; ?>
 <?php endif; ?>

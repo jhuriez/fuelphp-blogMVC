@@ -6,8 +6,23 @@ class Controller_Backend_Post extends \Controller_Base_Backend
     public function action_index()
     {
     	$this->dataGlobal['pageTitle'] = __('backend.post.manage');
-    	$this->data['posts'] = \Model_Post::find('all');
-		$this->theme->set_partial('content', 'backend/post/index')->set($this->data); 
+
+        // Pagination
+        $config = array(
+            'pagination_url' => \Uri::current(),
+            'total_items'    => \Model_Post::count(),
+            'per_page'       => \Config::get('application.pagination.per_page'),
+            'uri_segment'    => 'page',
+        );
+        $this->data['pagination'] = $pagination = \Pagination::forge('post_pagination', $config);
+        $this->data['posts'] = \Model_Post::query()
+                                        ->offset($pagination->offset)
+                                        ->limit($pagination->per_page)
+                                        ->order_by('created_at', 'DESC')
+                                        ->get();
+
+
+		$this->theme->set_partial('content', 'backend/post/index')->set($this->data, null, false); 
     }
 
     public function action_add($id = null)
