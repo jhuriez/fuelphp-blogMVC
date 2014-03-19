@@ -20,7 +20,7 @@ class Create_user
 		), array('id'));
 
 		// Create admin user
-		\Auth::instance()->create_user('admin','password','admin@blog.com','100');
+		\Auth::instance()->create_user('admin','admin','admin@blog.com','100');
 	}
 
 	public function down()
