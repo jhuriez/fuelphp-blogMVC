@@ -4,15 +4,22 @@ return array(
 	'page-not-found' => 'Page not found!',
 	'error' => 'An error has occured',
 	'category' => 'Category',
+	'commentaires' => 'Commentaires',
 	'on' => 'on',
 	'by' => 'by',
+	'submit' => 'Submit',
+
 
 	'frontend' => array(
 		'post' => array(
 			'empty' => 'No post found',
 			'not-found' => 'Post not found',
 		),
+		'comment' => array(
+			'added' => 'Comment added',
+		),
 		'read-more' => 'Read more',
+		'comment-this-post' => 'Comment this post',
 	),
 
 	'backend' => array(
@@ -43,6 +50,15 @@ return array(
 			'publication-date' => 'Publication date',
 			'category_id' => 'Category',
 			'user_id' => 'Author',
+		),
+	),
+
+	'comment' => array(
+		'model' => array(
+			'id' => 'ID',
+			'username' => 'Username',
+			'mail' => 'Mail',
+			'content' => 'Content',
 		),
 	),
 

@@ -28,6 +28,8 @@
 
         <div class="container">
             <div class="col-md-8">
+                <?= \Theme::instance()->view('_includes/message'); ?>
+                
                 <?php if(isset($partials['content'])): ?>
                     <?= $partials['content']; ?>
                 <?php endif; ?>

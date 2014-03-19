@@ -6,24 +6,24 @@ class Model_Comment extends \Orm\Model
     protected static $_properties = array(
         'id',
         'username' => array(
-            'label' => 'Username',
+            'label' => 'comment.model.username',
             'null' => false,
             'validation' => array('required', 'min_length' => array(3)),
         ),
         'mail' => array(
-            'label' => 'Mail address',
+            'label' => 'comment.model.mail',
             'null' => false,
             'validation' => array('valid_email'),
         ),
         'content' => array(
-            'label' => 'Content',
+            'label' => 'comment.model.content',
             'null' => false,
+            'form' => array('type' => 'textarea'),
             'validation' => array('required'),
         ),
         'post_id' => array(
             'form' => array('type' => false),
             'null' => false,
-            'validation' => array('is_numeric'),
         ),
         'created_at' => array(
             'form' => array('type' => false),
