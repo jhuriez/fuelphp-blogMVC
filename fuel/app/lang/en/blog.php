@@ -10,7 +10,7 @@ return array(
 	'by' => 'by',
 	'submit' => 'Submit',
 	'last-posts' => 'Last posts',
-	'welcome' => 'Welcome on my blog',
+	'welcome' => 'Welcome on my site',
 
 
 	'frontend' => array(
